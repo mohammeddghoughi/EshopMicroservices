@@ -1,0 +1,7 @@
+{
+    "Name":"New product",
+    "Category":["c1", "C2"],
+    "Description": "desc",
+    "ImageFile": "ImageFile",
+    "Price":199
+}

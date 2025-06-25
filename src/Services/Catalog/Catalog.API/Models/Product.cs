@@ -12,5 +12,7 @@ namespace Catalog.API.Models
         public string ImageFile { get; set; }
 
         public decimal Price { get; set; }
+
+        public ICollection<Category> Categories { get; set; } = new List<Category>();
     }
 }

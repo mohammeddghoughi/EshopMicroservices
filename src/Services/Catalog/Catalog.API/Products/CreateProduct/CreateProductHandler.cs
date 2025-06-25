@@ -1,4 +1,5 @@
-﻿using Kernel.CQRS;
+﻿using Catalog.API.Models;
+using Kernel.CQRS;
 using MediatR;
 
 namespace Catalog.API.Products.CreateProduct
@@ -8,9 +9,17 @@ namespace Catalog.API.Products.CreateProduct
     public record CreateProductResult(Guid Id);
     public class CreateProductHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
-        public Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+        public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var product = new Product
+            {
+                Name = command.Name,
+                Description = command.Description,
+                ImageFile = command.ImageFile,
+                Price = command.Price,
+            };
+
+            return new CreateProductResult(Guid.NewGuid());
         }
     }
 }
